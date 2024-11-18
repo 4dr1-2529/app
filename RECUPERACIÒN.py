@@ -9,32 +9,27 @@ class RecuperarContrasena(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        # Conectar los botones
-        self.ui.btn_recover.clicked.connect(self.recuperar_contrasena)  # Botón "Enviar Enlace"
-        self.ui.pushButton_2.clicked.connect(self.volver_atras)  # Botón "Atrás"
+        self.ui.btn_recover.clicked.connect(self.recuperar_contrasena)
+        self.ui.pushButton_2.clicked.connect(self.volver_atras)
 
     def recuperar_contrasena(self):
-        # Obtener el correo ingresado
         correo = self.ui.lineEdit.text()
 
-        # Validar que el correo no esté vacío
         if not correo:
             QMessageBox.warning(self, "Error", "Por favor, ingrese su correo electrónico.")
             return
 
-        # Validación simple de formato de correo
         if "@" not in correo:
             QMessageBox.warning(self, "Error", "El correo electrónico no es válido.")
             return
 
-        # Aquí podrías agregar la lógica para enviar el enlace de restablecimiento al correo (simulado en este caso)
         print(f"Enviando enlace de restablecimiento a {correo}")
 
-        # Mostrar mensaje de éxito
+
         QMessageBox.information(self, "Éxito", f"Enlace de restablecimiento enviado a {correo}.")
 
     def volver_atras(self):
-        # Cerrar la ventana actual
+
         self.close()
 
 
